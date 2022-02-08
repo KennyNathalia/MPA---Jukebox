@@ -16,5 +16,8 @@
 @stop
 
 @section('content')
+    @foreach($songs as $key => $data)
+        <img src={{$data->img}}>
+    @endforeach
     
 @stop

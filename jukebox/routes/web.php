@@ -50,7 +50,7 @@ Route::get('/register', function () {
     return view('register');
 });
 
-
+Route::get('/queue/add/{song}', [App\Http\Controllers\SongController::class, 'addSong'])->name('addSong');
 
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('/');
 

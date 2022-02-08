@@ -1,17 +1,19 @@
 <?php
+
 namespace App\Classes;
  
 use Illuminate\Http\Request;
+use App\Http\Controllers\SongController;
+use App\Models\Song;
+
 
 class Playlist
 {
-    public function add(Request $request, $id){
-        $request->session()->put('songName', 'name');
-
-        session(['songName' => 'name']);
+    public function addSong(Request $request, Song $song){
+        $request->session()->put('song', $song);
     }
 
-    public function store(Request $request, $id){
-        $value = $request->session()->get('songName');
+    public function viewQueue(Request $request){
+        $request->session()->get('song');
     }
 }

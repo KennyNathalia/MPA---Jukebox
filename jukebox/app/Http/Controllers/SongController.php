@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Route;
+use App\Models\Song;
+use App\Classes\Playlist;
+
+
 
 class SongController extends Controller
 {
@@ -127,5 +131,17 @@ class SongController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function addSong(Request $request, Song $song){
+        //dd($song);
+        $playlist = new Playlist;
+        $playlist->addSong($request, $song);
+        return view('queue');
+    }
+
+    public function viewQueue(Request $request){
+        $view = new Playlist;
+        $playlist->viewQueue($request);
     }
 }
